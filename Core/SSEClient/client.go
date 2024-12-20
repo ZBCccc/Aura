@@ -1,11 +1,11 @@
 package sseclient
 
 import (
-	sseserver "aura/Core/SSEServer"
-	ggmtree "aura/GGM"
-	util "aura/Util"
 	"encoding/base64"
 	"fmt"
+	sseserver "github.com/ZBCccc/Aura/Core/SSEServer"
+	ggmtree "github.com/ZBCccc/Aura/GGM"
+	util "github.com/ZBCccc/Aura/Util"
 	"log"
 	"slices"
 

@@ -1,11 +1,11 @@
 package sseserver
 
 import (
-	ggmtree "aura/GGM"
-	util "aura/Util"
 	"crypto/aes"
 	"encoding/base64"
 	"fmt"
+	ggmtree "github.com/ZBCccc/Aura/GGM"
+	util "github.com/ZBCccc/Aura/Util"
 	"log"
 	"slices"
 

@@ -21,7 +21,7 @@ The system consists of three main components:
 ## Installation
 To Use AURA, make sure you have Go 1.21 or later installed, then run:
 ```bash
-go get github.com/ZBCccc/aura
+go get github.com/ZBCccc/Aura
 ```
 
 ## Usage

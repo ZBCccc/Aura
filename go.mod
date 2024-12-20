@@ -1,4 +1,4 @@
-module aura
+module github.com/ZBCccc/Aura
 
 go 1.23.3
 

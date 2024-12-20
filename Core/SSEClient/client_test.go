@@ -1,8 +1,8 @@
 package sseclient
 
 import (
-	util "aura/Util"
 	"fmt"
+	util "github.com/ZBCccc/Aura/Util"
 	"testing"
 	"time"
 )

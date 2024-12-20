@@ -1,7 +1,7 @@
 package ggmtree
 
 import (
-	util "aura/Util"
+	util "github.com/ZBCccc/Aura/Util"
 	"math"
 )
 
