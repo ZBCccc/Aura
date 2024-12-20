@@ -19,9 +19,9 @@ The system consists of three main components:
 - **GGM Tree**: Provides efficient key derivation mechanism
 
 ## Installation
-To install AURA, make sure you have Go 1.21 or later installed, then run:
+To Use AURA, make sure you have Go 1.21 or later installed, then run:
 ```bash
-go install github.com/ZBCccc/aura
+go get github.com/ZBCccc/aura
 ```
 
 ## Usage
