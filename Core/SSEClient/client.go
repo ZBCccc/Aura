@@ -3,13 +3,14 @@ package sseclient
 import (
 	"encoding/base64"
 	"fmt"
-	sseserver "github.com/ZBCccc/Aura/Core/SSEServer"
-	ggmtree "github.com/ZBCccc/Aura/GGM"
-	util "github.com/ZBCccc/Aura/Util"
 	"log"
 	"slices"
 
-	"github.com/bits-and-blooms/bloom/v3"
+	sseserver "github.com/ZBCccc/Aura/Core/SSEServer"
+	ggmtree "github.com/ZBCccc/Aura/GGM"
+	util "github.com/ZBCccc/Aura/Util"
+
+	bloom "github.com/ZBCccc/Aura/bloom"
 )
 
 type SSEClient struct {

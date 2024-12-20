@@ -31,7 +31,7 @@ go get github.com/ZBCccc/Aura
 3. **Update Data**: Insert or delete data dynamically using the client.
 
 ```go
-import "github.com/ZBCccc/aura/Core/SSEClient"
+import "github.com/ZBCccc/Aura/Core/SSEClient"
 // Create a new SSE client
 client := sseclient.NewSSEClient()
 // Insert a document

@@ -1,4 +1,4 @@
-package bf
+package bloom
 
 import (
 	"slices"
