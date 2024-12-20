@@ -9,7 +9,7 @@ import (
 	"log"
 	"slices"
 
-	"github.com/bits-and-blooms/bloom/v3"
+	bloom "github.com/ZBCccc/Aura/bloom"
 )
 
 type Server struct {

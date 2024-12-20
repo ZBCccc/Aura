@@ -3,12 +3,10 @@ package bloom
 import (
 	"slices"
 	"testing"
-
-	"github.com/bits-and-blooms/bloom/v3"
 )
 
 func TestBf(t *testing.T) {
-	filter := bloom.New(10000, 10)
+	filter := New(10000, 10)
 	filter.Add([]byte("Love"))
 	if filter.Test([]byte("Love")) {
 		t.Log("元素存在")
