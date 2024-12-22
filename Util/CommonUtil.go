@@ -13,7 +13,7 @@ const (
 	AESBlockSize = 16
 	DIGESTSize   = 32
 	GGMSize      = 65536
-	HashSize     = 3
+	HashSize     = 13
 )
 
 type Operation int

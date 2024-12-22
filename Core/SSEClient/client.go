@@ -17,7 +17,7 @@ type SSEClient struct {
 	key    []byte
 	iv     []byte
 	tree   *ggmtree.GGMTree
-	bf     *bloom.BloomFilter
+	bf     map[string]*bloom.BloomFilter
 	C      map[string]int
 	server *sseserver.Server
 }
@@ -28,7 +28,7 @@ func NewSSEClient() *SSEClient {
 		key:    []byte("0123456789123456"),
 		iv:     []byte("0123456789123456"),
 		tree:   ggmtree.NewGGMTree(util.GGMSize),
-		bf:     bloom.New(util.GGMSize, util.HashSize),
+		bf:     make(map[string]*bloom.BloomFilter),
 		C:      make(map[string]int),
 		server: sseserver.NewServer(),
 	}
@@ -43,7 +43,10 @@ func (c *SSEClient) Update(op util.Operation, keyword string, ind string) {
 	// process the operator
 	if op == util.Insert {
 		// get all offsets in BF
-		indexes := c.bf.GetIndex(tag)
+		if _, exists := c.bf[keyword]; !exists {
+			c.bf[keyword] = bloom.New(util.GGMSize, util.HashSize)
+		}
+		indexes := c.bf[keyword].GetIndex(tag)
 		slices.Sort(indexes)
 
 		// get SRE ciphertext list
@@ -80,7 +83,7 @@ func (c *SSEClient) Update(op util.Operation, keyword string, ind string) {
 		c.server.AddEntries(base64.StdEncoding.EncodeToString(label), base64.StdEncoding.EncodeToString(tag), ciphertexts)
 	} else if op == util.Delete {
 		// insert the tag into BF
-		c.bf.Add([]byte(tag))
+		c.bf[keyword].Add([]byte(tag))
 	}
 }
 
@@ -93,7 +96,7 @@ func (c *SSEClient) Search(keyword string) []string {
 	for i := 0; i < util.GGMSize; i++ {
 		bfPos[i] = i
 	}
-	deletePos := c.bf.Search()
+	deletePos := c.bf[keyword].Search()
 	remainPos := setDifference(bfPos, deletePos)
 
 	// generate GGM Node for the remain position
